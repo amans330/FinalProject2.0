@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MainListener
+ * Servlet implementation class MainListener..
  */
 @WebServlet("/MainListener")
 public class MainListener extends HttpServlet {
