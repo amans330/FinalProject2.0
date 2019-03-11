@@ -21,7 +21,7 @@
   <link href="css/business-casual.min.css" rel="stylesheet">
 </head>
 <body>
-
+	<p id="user_name"><%= request.getAttribute("username") %></p>
   <h1 class="site-heading text-center text-white d-none d-lg-block">
     <span class="site-heading-upper text-primary mb-3">Munna Book Bhandar</span>
     <span class="site-heading-lower">Read On!! </span>

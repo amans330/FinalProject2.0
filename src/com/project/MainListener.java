@@ -50,7 +50,9 @@ public class MainListener extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		if(MySQLAccess.checkCredentials(username, password) == true) {
-			response.sendRedirect("/Finalproject2/index.jsp");
+			request.setAttribute("username", username);
+			request.getRequestDispatcher("/index.jsp").forward(request, response); 
+//			response.sendRedirect("/Finalproject2/index.jsp");
 		}else {
 			response.getWriter().print("wrong things");
 		}
