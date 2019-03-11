@@ -5,47 +5,43 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 public class MySQLAccess {
 
-	private static Connection connect = null;
+//	private static Connection connect = null;
 	  private static Statement statement = null;
 	  private PreparedStatement preparedStatement = null;
-//	  private ResultSet resultSet = null;
-
-	  final private String host = "xxxxxxxxxxxxxxxxxxxxxxxx";
-	  final private String user = "xxxxxxxx";
-	  final private String passwd = "xxxxxxxxxxx";
 	  
-	  public static Connection establishConnection() {
+	  public static ResultSet establishConnection() throws Exception{
 		  try {
+			  ResultSet resultSet = null;
 			  //load the MySQL driver
-			  Class.forName("com.mysql.jdbc.Driver").newInstance();
-			  // Setup the connection with the DB
-			  connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema?"
-							  + "user=root&password= toor");
-			  return connect;
+			  Class.forName("com.mysql.jdbc.Driver");  
+			  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema","root","toor");  
+			  statement = con.createStatement();
+				resultSet = statement
+						.executeQuery("select * from users");
+			  return resultSet;
 		  } catch (Exception e) {
 			  return null;
 		  }
 	  }
 	  
-	  public static ResultSet getusers() {
-		  ResultSet resultSet = null;
-		  
-		// Statements to issue SQL queries to the database
-	      try {
-			statement = connect.createStatement();
-			resultSet = statement
-					.executeQuery("select * from users");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	      return resultSet;
-	      // Result set get the result of the SQL query
-	  }
+//	  public static ResultSet getusers() {
+//		  ResultSet resultSet = null;
+//		  
+//		// Statements to issue SQL queries to the database
+//	      try {
+//			statement = connect.createStatement();
+//			resultSet = statement
+//					.executeQuery("select * from users");
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	      return resultSet;
+//	      // Result set get the result of the SQL query
+//	  }
 	  
 //	  public void readDataBase() throws Exception {
 //		  
@@ -108,13 +104,13 @@ public class MySQLAccess {
 //	        resultSet.close();
 //	      }
 
-	      if (statement != null) {
-	        statement.close();
-	      }
+//	      if (statement != null) {
+//	        statement.close();
+//	      }
 
-	      if (connect != null) {
-	        connect.close();
-	      }
+//	      if (connect != null) {
+//	        connect.close();
+//	      }
 	    } catch (Exception e) {
 
 	    }

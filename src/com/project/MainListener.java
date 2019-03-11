@@ -41,9 +41,15 @@ public class MainListener extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		connect = MySQLAccess.establishConnection();
-		if(connect != null) {
-			ResultSet rs = MySQLAccess.getusers();
+//		connect = MySQLAccess.establishConnection();
+		
+			ResultSet rs = null;
+			try {
+				rs = MySQLAccess.establishConnection();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			StringBuilder sb= new StringBuilder();
 			try {
 				while(rs.next()) {
@@ -54,7 +60,10 @@ public class MainListener extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().append("Served at: ").append(sb.toString());	
-		}
+		
+	
+			response.getWriter().append("aman");
+		
 			
 	}
 
