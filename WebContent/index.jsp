@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BookReview</title>
+  <title>Munna</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     <span class="site-heading-upper text-primary mb-3">Munna Book Bhandar</span>
     <span class="site-heading-lower">Read On!! </span>
   </h1>
-
+	<form action="MyServlet"><input type="submit" value="send"/></form>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
@@ -42,13 +42,13 @@
             </a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="new.html">What's New!</a>
+            <a class="nav-link text-uppercase text-expanded" href="new.jsp">What's New!</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="membership.html">Membership</a>
+            <a class="nav-link text-uppercase text-expanded" href="membership.jsp">Membership</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="community.html">Community</a>
+            <a class="nav-link text-uppercase text-expanded" href="community.jsp">Community</a>
           </li>
         </ul>
       </div>

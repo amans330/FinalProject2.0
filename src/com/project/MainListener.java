@@ -1,6 +1,10 @@
 package com.project;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/MainListener")
 public class MainListener extends HttpServlet {
+	private static Connection connect = null;
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -35,7 +41,21 @@ public class MainListener extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		connect = MySQLAccess.establishConnection();
+		if(connect != null) {
+			ResultSet rs = MySQLAccess.getusers();
+			StringBuilder sb= new StringBuilder();
+			try {
+				while(rs.next()) {
+					sb.append(rs.getString("username")+":"+rs.getString("password"));
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			response.getWriter().append("Served at: ").append(sb.toString());	
+		}
+			
 	}
 
 	/**
