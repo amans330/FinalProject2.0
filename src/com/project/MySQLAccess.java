@@ -1,4 +1,5 @@
 package com.project;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,24 +10,33 @@ import java.sql.Statement;
 public class MySQLAccess {
 
 //	private static Connection connect = null;
-	  private static Statement statement = null;
-	  private PreparedStatement preparedStatement = null;
-	  
-	  public static ResultSet establishConnection() throws Exception{
-		  try {
-			  ResultSet resultSet = null;
-			  //load the MySQL driver
-			  Class.forName("com.mysql.jdbc.Driver");  
-			  Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema","root","toor");  
-			  statement = con.createStatement();
-				resultSet = statement
-						.executeQuery("select * from users");
-			  return resultSet;
-		  } catch (Exception e) {
-			  return null;
-		  }
-	  }
-	  
+//	  private static Statement statement = null;
+	private PreparedStatement preparedStatement = null;
+
+	public static Connection getConnection() throws Exception {
+		// load the MySQL driver
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema", "root", "toor");
+		return con;
+	}
+
+	public static boolean checkCredentials(String username, String password) {
+		try {
+			Connection con = getConnection();
+			Statement statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from users");
+			while (resultSet.next()) {
+				if (resultSet.getString("username").equals(username)
+						&& resultSet.getString("password").equals(password))
+					return true;
+			}
+			return false;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 //	  public static ResultSet getusers() {
 //		  ResultSet resultSet = null;
 //		  
@@ -42,7 +52,7 @@ public class MySQLAccess {
 //	      return resultSet;
 //	      // Result set get the result of the SQL query
 //	  }
-	  
+
 //	  public void readDataBase() throws Exception {
 //		  
 //	    try {
@@ -96,10 +106,10 @@ public class MySQLAccess {
 //	    }
 //
 //	  }
-	  
+
 	// Close the resultSet
-	  private void close() {
-	    try {
+	private void close() {
+		try {
 //	      if (resultSet != null) {
 //	        resultSet.close();
 //	      }
@@ -111,8 +121,8 @@ public class MySQLAccess {
 //	      if (connect != null) {
 //	        connect.close();
 //	      }
-	    } catch (Exception e) {
+		} catch (Exception e) {
 
-	    }
-	  }
+		}
+	}
 }

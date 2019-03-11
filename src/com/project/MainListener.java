@@ -41,38 +41,19 @@ public class MainListener extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		connect = MySQLAccess.establishConnection();
-		
-			ResultSet rs = null;
-			try {
-				rs = MySQLAccess.establishConnection();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			StringBuilder sb= new StringBuilder();
-			try {
-				while(rs.next()) {
-					sb.append(rs.getString("username")+":"+rs.getString("password"));
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			response.getWriter().append("Served at: ").append(sb.toString());	
-		
-	
-			response.getWriter().append("aman");
-		
-			
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		if(MySQLAccess.checkCredentials(username, password) == true) {
+			response.sendRedirect("/Finalproject2/index.jsp");
+		}else {
+			response.getWriter().print("wrong things");
+		}
 	}
 
 	/**

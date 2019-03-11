@@ -26,7 +26,6 @@
     <span class="site-heading-upper text-primary mb-3">Munna Book Bhandar</span>
     <span class="site-heading-lower">Read On!! </span>
   </h1>
-	<form action="MyServlet"><input type="submit" value="send"/></form>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
     <div class="container">
