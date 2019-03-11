@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="index.html">Genres
+            <a class="nav-link text-uppercase text-expanded" href="index.jsp">Genres
               <span class="sr-only">(current)</span>
             </a>
           </li>
