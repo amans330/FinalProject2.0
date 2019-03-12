@@ -11,15 +11,27 @@ import java.util.List;
 
 public class MySQLAccess {
 
-//	private static Connection connect = null;
-//	  private static Statement statement = null;
-	private PreparedStatement preparedStatement = null;
-
 	public static Connection getConnection() throws Exception {
 		// load the MySQL driver
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema", "root", "toor");
 		return con;
+	}
+	
+	public static boolean insertUser(String username, String password, String email) {
+		try {
+			Connection con = getConnection();
+			String query = "insert into users(username, password, email) values(?,?,?)";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, username);
+			statement.setString(2, password);
+			statement.setString(3, email);
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public static boolean checkCredentials(String username, String password) {
@@ -52,6 +64,8 @@ public class MySQLAccess {
 				book.setBookname(resultSet.getString("bookname"));
 				book.setAuthor_name(resultSet.getString("author"));
 				book.setRating(resultSet.getString("rating"));
+				book.setGenre(resultSet.getString("genre_name"));
+				book.setPublishedDate(resultSet.getDate("published"));
 				data.add(book);
 			}
 			return data;

@@ -1,12 +1,21 @@
 package com.project;
 
+import java.sql.Date;
+
 public class Books {
 	int bookid;
 	String bookname;
 	String author_name;
 	String genre;
 	String rating;
+	Date publishedDate;
 	
+	public Date getPublishedDate() {
+		return publishedDate;
+	}
+	public void setPublishedDate(Date publishedDate) {
+		this.publishedDate = publishedDate;
+	}
 	public String getRating() {
 		return rating;
 	}

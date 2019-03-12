@@ -23,21 +23,21 @@
 <body>
 	<section class="page-section clearfix">
 		<div class="form-container">
-			<form id="contact" action="" method="post">
+			<form id="contact" action="RegisterUser" method="post">
 				<h3>Registration Form</h3>
 				<fieldset>
-					<input placeholder="Username" type="text" tabindex="1" required
+					<input name="username" placeholder="Username" type="text" tabindex="1" required
 						autofocus>
 				</fieldset>
 				<fieldset>
-					<input placeholder="Your Email Address" type="email" tabindex="2"
+					<input name="email" placeholder="Your Email Address" type="email" tabindex="2"
 						required>
 				</fieldset>
 				<fieldset>
-					<input placeholder="Password" type="password" tabindex="3" required>
+					<input name="password" placeholder="Password" type="password" tabindex="3" required>
 				</fieldset>
 				<fieldset>
-					<input placeholder="Password" type="password" tabindex="4" required>
+					<input name="password1" placeholder="Password" type="password" tabindex="4" required>
 				</fieldset>
 				<fieldset>
 					<button name="submit" type="submit" id="contact-submit"
