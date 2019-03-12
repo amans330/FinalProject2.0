@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLAccess {
 
@@ -36,22 +38,50 @@ public class MySQLAccess {
 			return false;
 		}
 	}
-
-//	  public static ResultSet getusers() {
-//		  ResultSet resultSet = null;
-//		  
-//		// Statements to issue SQL queries to the database
-//	      try {
-//			statement = connect.createStatement();
-//			resultSet = statement
-//					.executeQuery("select * from users");
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	      return resultSet;
-//	      // Result set get the result of the SQL query
-//	  }
+	
+	public static ArrayList<Books> getBooksForGenre(String genre){
+		try {
+			Connection con = getConnection();
+			String query = "select * from bookschema.books natural join bookschema.genre where genre_name = ?";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, genre);
+			ResultSet resultSet = statement.executeQuery();
+			ArrayList<Books> data = new ArrayList<Books>();
+			while(resultSet.next()) {
+				Books book = new Books();
+				book.setBookname(resultSet.getString("bookname"));
+				book.setAuthor_name(resultSet.getString("author"));
+				book.setRating(resultSet.getString("rating"));
+				data.add(book);
+			}
+			return data;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static ArrayList<Books> getBooksByName(String name){
+		try {
+			Connection con = getConnection();
+			String query = "select * from bookschema.books bookname = ?";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, name);
+			ResultSet resultSet = statement.executeQuery();
+			ArrayList<Books> data = new ArrayList<Books>();
+			while(resultSet.next()) {
+				Books book = new Books();
+				book.setBookname(resultSet.getString("bookname"));
+				book.setAuthor_name(resultSet.getString("author"));
+				book.setRating(resultSet.getString("rating"));
+				data.add(book);
+			}
+			return data;
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 //	  public void readDataBase() throws Exception {
 //		  
