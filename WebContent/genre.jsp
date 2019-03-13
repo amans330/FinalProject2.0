@@ -57,14 +57,15 @@
 </style>
 </head>
 <body>
-	<a class="dropdown-item" href="MyServlet?genre=children">Children</a>
-
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
-		<span class="site-heading-upper text-primary mb-3">Munna Book
-			Bhandar</span> <span class="site-heading-lower">Read On!! </span>
-	</h1>
 
-	<!-- Navigation -->
+   	 <span class=""></span>
+
+   	 <span class=" site-heading-upper text-primary mb-3 site-heading-lower"><b>Munna Book Bhandar</b></span>
+
+  	</h1>
+
+   <!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
 		<div class="container">
 			<!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a> -->

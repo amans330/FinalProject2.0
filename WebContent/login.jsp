@@ -20,6 +20,13 @@
 <link href="css/business-casual.min.css" rel="stylesheet">
 </head>
 <body>
+	<h1 class="site-heading text-center text-white d-none d-lg-block">
+
+   	 <span class=""></span>
+
+   	 <span class=" site-heading-upper text-primary mb-3 site-heading-lower"><b>Munna Book Bhandar</b></span>
+
+  	</h1>
 	<section class="page-section clearfix">
 		<div class="form-container">
 			<form id="contact" action="MyLogin" method="post">

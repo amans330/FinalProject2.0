@@ -204,83 +204,52 @@
 
   	</h1>
 
-    <!-- Navigation -->
+   <!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+		<div class="container">
+			<!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a> -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav mx-auto">
 
-      <div class="container">
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="index.html">Trending</a>
 
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
+						<span class="sr-only">(current)</span> </a></li>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<div class="dropdown">
+						<li class="nav-item active px-lg-4"><a
+							class="nav-link text-uppercase text-expanded" href="about.html">Genres</a>
+							<div class="dropdown-content">
+								<a href="MyServlet?genre=children">Children</a> <a
+									href="genredetails.html">Drama</a> <a href="genredetails.html">Non-Fiction</a>
+								<a href="genredetails.html">Fantasy</a> <a
+									href="MyServlet?genre=horror">Horror</a> <a
+									href="genredetails.html">Mystery</a> <a
+									href="genredetails.html">Political</a>
+							</div></li>
+					</div>
 
-          <span class="navbar-toggler-icon"></span>
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded"
+						href="membership.html">Membership</a></li>
 
-        </button>
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded"
+						href="getChats">Community</a></li>
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+				</ul>
 
-          <ul class="navbar-nav mx-auto">
+			</div>
 
-          <li class="nav-item active px-lg-4">
+		</div>
 
- 				<a class="nav-link text-uppercase text-expanded" href="index.html">Trending</a>
-
-              <span class="sr-only">(current)</span>
-
-            </a>
-
-          </li>   
-
-          <div class="dropdown">
-
-           <li class="nav-item active px-lg-4">
-
- 				<a class="nav-link text-uppercase text-expanded" href="about.html">Genres</a>
-
- 			
-
- 				<div class="dropdown-content">
-
-    				<a href="genredetails.html">Children</a>
-
-    				<a href="genredetails.html">Drama</a>
-
-   					<a href="genredetails.html">Non-Fiction</a>
-
-   					<a href="genredetails.html">Fantasy</a>
-
-   					<a href="genredetails.html">Horror</a>
-
-   					<a href="genredetails.html">Mystery</a>
-
-   					<a href="genredetails.html">Political</a>
-
-  				</div>
-
-  			</li>
-
-		  </div>
-
-          <li class="nav-item active px-lg-4">
-
-            <a class="nav-link text-uppercase text-expanded" href="membership.html">Membership</a>
-
-          </li>
-
-          <li class="nav-item active px-lg-4">
-
-            <a class="nav-link text-uppercase text-expanded" href="community.html">Community</a>
-
-          </li>
-
-        </ul>
-
-        </div>
-
-      </div>
-
-    </nav>
+	</nav>
 
 
 
