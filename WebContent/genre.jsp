@@ -124,7 +124,7 @@
 
 		<section class="page-section about-heading">
 			<ul class="product-list-vertical">
-				<li><a href="#" class="product-photo"> <img
+				<li style="background-color: #ffebcd"><a href="#" class="product-photo"> <img
 						src="img/bookimg.jpg" height="160" alt="iPhone 6" />
 				</a>
 					<div class="product-details">
