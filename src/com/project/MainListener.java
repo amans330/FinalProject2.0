@@ -43,18 +43,25 @@ public class MainListener extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ArrayList<Books> data;
+		if(request.getHttpServletMapping().getPattern().contains("getChats")) {
+			ArrayList<Discussions> data = MySQLAccess.getChats();
+			request.setAttribute("chatList", data);
+			request.getRequestDispatcher("/community.jsp").forward(request, response);
+		}
+		
 		if(request.getHttpServletMapping().getPattern().contains("Search")){
 			String searchstring = request.getParameter("searchstring"); 
-			data = MySQLAccess.getBooksByName(searchstring);
-		}else {
-			String genre = request.getParameter("genre"); 
-			
-			data = MySQLAccess.getBooksForGenre(genre);
+			ArrayList<Books> data = MySQLAccess.getBooksByName(searchstring);
+			request.setAttribute("booklist", data);
+			request.getRequestDispatcher("/genre.jsp").forward(request, response);
 		}
-		request.setAttribute("booklist", data);
-		request.getRequestDispatcher("/genre.jsp").forward(request, response);;
-//		rd.include(request, response);
+		
+		if(request.getHttpServletMapping().getPattern().contains("MyServlet")) {
+			String genre = request.getParameter("genre"); 
+			ArrayList<Books> data = MySQLAccess.getBooksForGenre(genre);
+			request.setAttribute("booklist", data);
+			request.getRequestDispatcher("/genre.jsp").forward(request, response);
+		}
 	}
 
 	/**
