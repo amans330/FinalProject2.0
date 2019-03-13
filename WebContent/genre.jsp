@@ -54,18 +54,39 @@
 .dropdown-content a:hover {
 	background-color: #ddd;
 }
+
+.myButton {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cd863f
+		), color-stop(1, #c4792f));
+	border-radius: 10px;
+	border: 1.5px solid #0b0d0c;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff1db;
+	padding: 7px 13px;
+}
+
+.myButton:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c4792f
+		), color-stop(1, #cd863f));
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
 </style>
 </head>
 <body>
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
 
-   	 <span class=""></span>
+		<span class=""></span> <span
+			class=" site-heading-upper text-primary mb-3 site-heading-lower"><b>Munna
+				Book Bhandar</b></span>
 
-   	 <span class=" site-heading-upper text-primary mb-3 site-heading-lower"><b>Munna Book Bhandar</b></span>
+	</h1>
 
-  	</h1>
-
-   <!-- Navigation -->
+	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
 		<div class="container">
 			<!--<a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a> -->
@@ -88,9 +109,9 @@
 							class="nav-link text-uppercase text-expanded" href="index.jsp">Genres</a>
 							<div class="dropdown-content">
 								<a href="MyServlet?genre=children">Children</a> <a
-									href="MyServlet?genre=drama">Drama</a> 
-									<a href="MyServlet?genre=nonfiction">Non-Fiction</a>
-								<a href="MyServlet?genre=fantasy">Fantasy</a> <a
+									href="MyServlet?genre=drama">Drama</a> <a
+									href="MyServlet?genre=nonfiction">Non-Fiction</a> <a
+									href="MyServlet?genre=fantasy">Fantasy</a> <a
 									href="MyServlet?genre=horror">Horror</a> <a
 									href="MyServlet?genre=comics">Comics</a> <a
 									href="MyServlet?genre=political">Political</a>
@@ -98,12 +119,10 @@
 					</div>
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="publish.jsp">Publish</a></li>
+						class="nav-link text-uppercase text-expanded" href="publish.jsp">Publish</a></li>
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="getChats">Community</a></li>
+						class="nav-link text-uppercase text-expanded" href="getChats">Community</a></li>
 
 				</ul>
 
@@ -125,8 +144,9 @@
 
 		<section class="page-section about-heading">
 			<ul class="product-list-vertical">
-				<li style="background-color: #ffebcd"><a href="#" class="product-photo"> <img
-						src="img/bookimg.jpg" height="160" alt="iPhone 6" />
+				<li style="background-color: #ffebcd"><a href="#"
+					class="product-photo"> <img src="img/bookimg.jpg" height="160"
+						alt="iPhone 6" />
 				</a>
 					<div class="product-details">
 						<h2><%=book.getBookname()%></h2>
@@ -138,13 +158,25 @@
 									class="fa fa-star"></i>
 								</span>
 							</div>
-							<h4>by <%=book.getAuthor_name()%></h4>
+							<h4>
+								by
+								<%=book.getAuthor_name()%></h4>
 						</div>
 						<p class="product-description"><%=book.getDescription()%></p>
 						<p>
-						<h4>Genre: <%=book.getGenre()%></h4>
+						<h4>
+							Genre:
+							<%=book.getGenre()%></h4>
 						</p>
-						<p>Published On: <%=book.getPublishedDate()%></p>
+						<p>
+							Published On:
+							<%=book.getPublishedDate()%></p>
+						<b>GET A COPY</b>
+						<form action="/action_page.php" method="get">
+							<p class="myButton">Amazon</p>
+							<p class="myButton">Libraries</p>
+							<p class="myButton">Download eBook</p>
+						</form>
 					</div></li>
 			</ul>
 		</section>

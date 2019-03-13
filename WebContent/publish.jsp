@@ -250,7 +250,7 @@ input[type=submit] {
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="index.jsp">Trending</a>
 
-						<span class="sr-only">(current)</span> </a></li>
+						<span class="sr-only">(current)</span> </li>
 
 					<div class="dropdown">
 						<li class="nav-item active px-lg-4"><a
