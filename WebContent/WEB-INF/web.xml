@@ -27,5 +27,13 @@
   <servlet-mapping>
   	<servlet-name>MyServlet</servlet-name>
   	<url-pattern>/getChats</url-pattern>
+  </servlet-mapping> 
+  <servlet-mapping>
+  	<servlet-name>MyServlet</servlet-name>
+  	<url-pattern>/publishbook</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+  	<servlet-name>MyServlet</servlet-name>
+  	<url-pattern>/postComment</url-pattern>
   </servlet-mapping>
 </web-app>

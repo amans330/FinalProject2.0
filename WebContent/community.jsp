@@ -18,7 +18,7 @@
 
 
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title></title>
 
 	
 
@@ -183,6 +183,58 @@
   	color:#000000; 
 
 	}
+	
+	.frm {
+
+  border-radius: 5px;
+	
+  background-color: #FFEBCD;
+
+  
+
+}
+
+	
+
+input[type=text], select {
+
+  width: 85%;
+
+  padding: 12px 12px;
+
+  margin: 8px 0;
+
+  display: inline-block;
+
+  border: 1px solid black;
+
+  border-radius: 4px;
+
+  box-sizing: border-box;
+
+}
+
+
+
+input[type=submit] {
+
+  
+
+  background-color: #CD853F;
+
+  color: white;
+
+  padding: 14px 20px;
+
+  margin: 8px 0;
+
+  border: none;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
+}
 
 }
 
@@ -218,26 +270,26 @@
 				<ul class="navbar-nav mx-auto">
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.html">Trending</a>
+						class="nav-link text-uppercase text-expanded" href="index.jsp">Trending</a>
 
 						<span class="sr-only">(current)</span> </a></li>
 
 					<div class="dropdown">
 						<li class="nav-item active px-lg-4"><a
-							class="nav-link text-uppercase text-expanded" href="about.html">Genres</a>
+							class="nav-link text-uppercase text-expanded" href="index.jsp">Genres</a>
 							<div class="dropdown-content">
 								<a href="MyServlet?genre=children">Children</a> <a
 									href="genredetails.html">Drama</a> <a href="genredetails.html">Non-Fiction</a>
 								<a href="genredetails.html">Fantasy</a> <a
 									href="MyServlet?genre=horror">Horror</a> <a
-									href="genredetails.html">Mystery</a> <a
+									href="MyServlet?genre=comics">Comics</a> <a
 									href="genredetails.html">Political</a>
 							</div></li>
 					</div>
 
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
-						href="membership.html">Membership</a></li>
+						href="publish.jsp">Publish</a></li>
 
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
@@ -310,11 +362,23 @@
        		       	
 
    					</table>
-
+					
 				</div>
-
+		
             </div>
+			<div class = "frm">
 
+				<form action="postComment" method="post">
+
+    				<label for="cmt" style="padding-right: 5px;"></label>
+
+    					<input type="text" id="cmt" name="comment" placeholder="Enter comment here.."/>
+
+    					<input type="submit" value="Submit">
+
+  				</form>
+
+  				</div>
           </div>
 
         </div>
@@ -327,7 +391,7 @@
 
       <div class="container">
 
-        <p class="m-0 small">Mumma Book Bhandar Inc.</p>
+        <p class="m-0 small">Munna Book Bhandar Inc.</p>
 
       </div>
 

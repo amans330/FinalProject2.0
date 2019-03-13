@@ -71,6 +71,22 @@ public class MySQLAccess {
 			return false;
 		}
 	}
+	
+	public static boolean insertComment(String username, String comment, Date date) {
+		try {
+			Connection con = getConnection();
+			String query = "insert into discussion(username, message, posted_on) values(?,?,?)";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, username);
+			statement.setString(2, comment);
+			statement.setDate(3, date);
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	public static ArrayList<Books> getBooksForGenre(String genre) {
 		try {

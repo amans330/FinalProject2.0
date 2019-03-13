@@ -23,41 +23,210 @@
 
 <!-- Custom styles for this template -->
 <link href="css/business-casual.min.css" rel="stylesheet">
-<link href="css/product-list-vertical.css" rel="stylesheet">
 
 <style>
-.dropdown {
-	position: relative;
-	display: inline-block;
+
+
+
+	.dropdown {
+
+ 	 position: relative;
+
+ 	 display: inline-block;
+
+	}
+
+
+
+	.dropdown-content {
+
+ 	 display: none;
+
+ 	 position: absolute;
+
+ 	 background-color: #FFEBCD;
+
+ 	 min-width: 140px;
+
+ 	 box-shadow: white;
+
+ 	 z-index: 1;
+
+	}
+
+
+
+	.dropdown-content a {
+
+	  color: black;
+
+ 	 padding: 10px 10px;
+
+ 	 position: relative;
+
+ 	 text-decoration: none;
+
+ 	 text-align: left;
+
+  	display: block;
+
+	}
+
+	.dropdown:hover .dropdown-content {display: block;}
+
+	.dropdown-content a:hover {background-color: #CD853F;}
+
+
+
+	body {
+
+ 	 background-color: #91ced4;
+
+	}
+
+	img {
+
+ 	 border-radius: 30%;
+
+	}
+
+	.table-users {
+
+ 	 border: 1.5px solid #000000;
+
+  	border-radius: 10px;
+
+  	box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+
+  	max-width: calc(100% - 2em);
+
+  	margin: 1em auto;
+
+  	overflow: hidden;
+
+  	width: 800px;
+
+	}
+
+	table {
+
+ 	 width: 100%;
+
+	}
+
+	table td, table th {
+
+  	color: #2b686e;
+
+    padding: 10px;
+
+	}
+
+	table td {
+
+  	text-align: center;
+
+  	vertical-align: middle;
+
+	}
+
+	table td:last-child {
+
+  	font-size: 0.95em;
+
+  	line-height: 1.4;
+
+  	text-align: left;
+
+	}
+
+	table th {
+
+  	background-color: #CD853F; ----
+
+  	font-weight: 300;
+
+	}
+
+	table tr {
+
+  	background-color: #FFEBCD;
+
+	}
+
+	table th{
+
+ 	 color:#000000; 
+
+	}
+
+	table td{
+
+  	color:#000000; 
+
+	}
+	
+	.frm {
+
+  border-radius: 5px;
+	
+  background-color: #FFEBCD;
+
+  
+
 }
 
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 140px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
+	
+
+input[type=text], select {
+
+  width: 65%;
+
+  padding: 12px 12px;
+
+  margin: 8px 0;
+
+  display: inline-block;
+
+  border: 1px solid black;
+
+  border-radius: 4px;
+
+  box-sizing: border-box;
+
 }
 
-.dropdown-content a {
-	color: black;
-	padding: 10px 10px;
-	text-decoration: none;
-	display: block;
+
+
+input[type=submit] {
+
+  
+
+  background-color: #CD853F;
+
+  color: white;
+
+  padding: 14px 20px;
+
+  margin: 8px 0;
+
+  border: none;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
 }
 
-.dropdown:hover .dropdown-content {
-	display: block;
 }
 
-.dropdown-content a:hover {
-	background-color: #ddd;
-}
-</style>
+
+
+ </style>
+
 </head>
 <body>
-	<h1 class="site-heading text-center text-white d-none d-lg-block">
+	 <h1 class="site-heading text-center text-white d-none d-lg-block">
 
    	 <span class=""></span>
 
@@ -111,47 +280,36 @@
 		</div>
 
 	</nav>
+	
 
-	<div class="container">
-		<%@page import="com.project.Books"%>
-		<%@page import="java.util.ArrayList"%>
-
-		<%
-			ArrayList<Books> books = (ArrayList<Books>) request.getAttribute("booklist");
-			if (books != null) {
-				for (Books book : books) {
-		%>
-
-		<section class="page-section about-heading">
-			<ul class="product-list-vertical">
-				<li style="background-color: #ffebcd"><a href="#" class="product-photo"> <img
-						src="img/bookimg.jpg" height="160" alt="iPhone 6" />
-				</a>
-					<div class="product-details">
-						<h2><%=book.getBookname()%></h2>
-						<div class="product-rating">
-							<div>
-								<span class="product-stars" style="width: 60px"> <i
-									class="fa fa-star"></i><i class="fa fa-star"></i><i
-									class="fa fa-star"></i><i class="fa fa-star"></i><i
-									class="fa fa-star"></i>
-								</span>
-							</div>
-							<h4>by <%=book.getAuthor_name()%></h4>
-						</div>
-						<p class="product-description"><%=book.getDescription()%></p>
-						<p>
-						<h4>Genre: <%=book.getGenre()%></h4>
-						</p>
-						<p>Published On: <%=book.getPublishedDate()%></p>
-					</div></li>
-			</ul>
-		</section>
-		<%
-			}
-			}
-		%>
-	</div>
+	<section class="page-section clearfix">
+		<div class="form-container">
+			<form id="contact" action="publishbook" method="post">
+				<h3>Upload Books</h3>
+				<fieldset>
+					<input name="bookname" placeholder="Bookname" type="text" tabindex="1" required
+						autofocus>
+				</fieldset>
+				<fieldset>
+					<input name="author" placeholder="Author Name" type="text" tabindex="2"
+						required>
+				</fieldset>
+				<fieldset>
+					<input name="genre" placeholder="Genre" type="text" tabindex="3" required>
+				</fieldset>
+				<fieldset>
+					<input name="description" placeholder="Description" type="text" tabindex="4" required>
+				</fieldset>
+				<fieldset>
+					<input name="publisheddate" placeholder="Published On" type="text" tabindex="5" required>
+				</fieldset>
+				<fieldset>
+					<button name="submit" type="submit" id="contact-submit"
+						data-submit="...Sending">Publish</button>
+				</fieldset>
+			</form>
+		</div>
+	</section>
 
 	<footer class="footer text-faded text-center py-5">
 
