@@ -13,11 +13,31 @@ public class MySQLAccess {
 
 	public static Connection getConnection() throws Exception {
 		// load the MySQL driver
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bookschema", "root", "toor");
 		return con;
 	}
-	
+
+	public static ArrayList<Discussions> getChats() {
+		try {
+			Connection con = getConnection();
+			Statement statement = con.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from discussion");
+			ArrayList<Discussions> data = new ArrayList<>();
+			while (resultSet.next()) {
+				Discussions obj = new Discussions();
+				obj.setUsername(resultSet.getString("username"));
+				obj.setMessage(resultSet.getString("message"));
+				obj.setPosted_on(resultSet.getDate("posted_on"));
+				data.add(obj);
+			}
+			return data;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public static boolean insertUser(String username, String password, String email) {
 		try {
 			Connection con = getConnection();
@@ -50,8 +70,8 @@ public class MySQLAccess {
 			return false;
 		}
 	}
-	
-	public static ArrayList<Books> getBooksForGenre(String genre){
+
+	public static ArrayList<Books> getBooksForGenre(String genre) {
 		try {
 			Connection con = getConnection();
 			String query = "select * from bookschema.books natural join bookschema.genre where genre_name = ?";
@@ -59,23 +79,24 @@ public class MySQLAccess {
 			statement.setString(1, genre);
 			ResultSet resultSet = statement.executeQuery();
 			ArrayList<Books> data = new ArrayList<Books>();
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				Books book = new Books();
 				book.setBookname(resultSet.getString("bookname"));
 				book.setAuthor_name(resultSet.getString("author"));
 				book.setRating(resultSet.getString("rating"));
 				book.setGenre(resultSet.getString("genre_name"));
 				book.setPublishedDate(resultSet.getDate("published"));
+				book.setDescription(resultSet.getString("description"));
 				data.add(book);
 			}
 			return data;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
-	public static ArrayList<Books> getBooksByName(String name){
+
+	public static ArrayList<Books> getBooksByName(String name) {
 		try {
 			Connection con = getConnection();
 			String query = "select * from bookschema.books bookname = ?";
@@ -83,7 +104,7 @@ public class MySQLAccess {
 			statement.setString(1, name);
 			ResultSet resultSet = statement.executeQuery();
 			ArrayList<Books> data = new ArrayList<Books>();
-			while(resultSet.next()) {
+			while (resultSet.next()) {
 				Books book = new Books();
 				book.setBookname(resultSet.getString("bookname"));
 				book.setAuthor_name(resultSet.getString("author"));
@@ -91,65 +112,11 @@ public class MySQLAccess {
 				data.add(book);
 			}
 			return data;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-
-//	  public void readDataBase() throws Exception {
-//		  
-//	    try {
-//	      // This will load the MySQL driver, each DB has its own driver
-//	      Class.forName("com.mysql.jdbc.Driver");
-//	      
-//	      // Setup the connection with the DB
-//	      connect = DriverManager
-//	          .getConnection("jdbc:mysql://" + host + "/feedback?"
-//	              + "user=" + user + "&password=" + passwd );
-//
-//	      // Statements allow to issue SQL queries to the database
-//	      statement = connect.createStatement();
-//	      // Result set get the result of the SQL query
-//	      resultSet = statement
-//	          .executeQuery("select * from feedback.comments");
-//	      writeResultSet(resultSet);
-//
-//	      // PreparedStatements can use variables and are more efficient
-//	      preparedStatement = connect
-//	          .prepareStatement("insert into  feedback.comments values (default, ?, ?, ?, ? , ?, ?)");
-//	      // "myuser, webpage, datum, summary, COMMENTS from feedback.comments");
-//	      // Parameters start with 1
-//	      preparedStatement.setString(1, "Test");
-//	      preparedStatement.setString(2, "TestEmail");
-//	      preparedStatement.setString(3, "TestWebpage");
-//	      preparedStatement.setDate(4, new java.sql.Date(2009, 12, 11));
-//	      preparedStatement.setString(5, "TestSummary");
-//	      preparedStatement.setString(6, "TestComment");
-//	      preparedStatement.executeUpdate();
-//
-//	      preparedStatement = connect
-//	          .prepareStatement("SELECT myuser, webpage, datum, summary, COMMENTS from feedback.comments");
-//	      resultSet = preparedStatement.executeQuery();
-//	      writeResultSet(resultSet);
-//
-//	      // Remove again the insert comment
-//	      preparedStatement = connect
-//	      .prepareStatement("delete from feedback.comments where myuser= ? ; ");
-//	      preparedStatement.setString(1, "Test");
-//	      preparedStatement.executeUpdate();
-//	      
-//	      resultSet = statement
-//	      .executeQuery("select * from feedback.comments");
-//	      writeMetaData(resultSet);
-//	      
-//	    } catch (Exception e) {
-//	      throw e;
-//	    } finally {
-//	      close();
-//	    }
-//
-//	  }
 
 	// Close the resultSet
 	private void close() {
