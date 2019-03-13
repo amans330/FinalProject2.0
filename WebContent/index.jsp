@@ -47,61 +47,13 @@
             <a class="nav-link text-uppercase text-expanded" href="membership.jsp">Membership</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="community.jsp">Community</a>
+            <a class="nav-link text-uppercase text-expanded" href="getChats">Community</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
-<section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-  <div class="btn-group">
-  <button class="btn btn-secondary btn-lg" type="button"  aria-haspopup="true" aria-expanded="false">
-    Children
-  </button>
-  <button class="btn btn-secondary btn-lg" type="button" aria-haspopup="true" aria-expanded="false">
-    Drama
-  </button>
-  <button class="btn btn-secondary btn-lg" type="button" aria-haspopup="true" aria-expanded="false">
-    Non-Fiction
-  </button>
-  <button class="btn btn-secondary btn-lg" type="button" aria-haspopup="true" aria-expanded="false">
-    Fantasy
-  </button>
-  <br>
-  <button class="btn btn-secondary btn-lg" type="button" aria-haspopup="true" aria-expanded="false">
-    Horror
-  </button>
-  <button class="btn btn-secondary btn-lg" type="button" aria-haspopup="true" aria-expanded="false">
-    Mystery
-  </button>
-</div>
-</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
-              <span class="section-heading-lower">To You</span>
-            </h2>
-            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer text-faded text-center py-5">
     <div class="container"> test
