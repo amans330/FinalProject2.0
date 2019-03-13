@@ -23,8 +23,41 @@
 
 <!-- Custom styles for this template -->
 <link href="css/business-casual.min.css" rel="stylesheet">
+<link href="css/product-list-vertical.css" rel="stylesheet">
+
+<style>
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 140px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 10px 10px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+</style>
 </head>
 <body>
+	<a class="dropdown-item" href="MyServlet?genre=children">Children</a>
 
 	<h1 class="site-heading text-center text-white d-none d-lg-block">
 		<span class="site-heading-upper text-primary mb-3">Munna Book
@@ -43,39 +76,30 @@
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav mx-auto">
+
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.html">Trending
-							<span class="sr-only">(current)</span>
-					</a></li>
+						class="nav-link text-uppercase text-expanded" href="index.html">Trending</a>
+
+						<span class="sr-only">(current)</span> </a></li>
+
 					<div class="dropdown">
-						<form id="myForm" action="MyServlet" method="get">
-							<li class="nav-item active px-lg-4">
-								<button class="btn btn-secondary dropdown-toggle" type="button"
-									id="dropdownMenuButton" data-toggle="dropdown"
-									aria-haspopup="true" aria-expanded="false">
-									<a class="nav-link text-uppercase text-expanded"
-										href="about.jsp">Genres</a>
-								</button>
-
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-									<a class="dropdown-item" href="MyServlet?genre=children">Children</a>
-									<a class="dropdown-item" href="MyServlet?genre=drama">Drama</a>
-									<a class="dropdown-item" href="MyServlet?genre=nonfiction">Non-Fiction</a>
-
-									<a class="dropdown-item" href="MyServlet?genre=fantasy">Fantasy</a>
-									<a class="dropdown-item" href="MyServlet?genre=horror">Horror</a>
-									<a class="dropdown-item" href="MyServlet?genre=mystery">Mystery</a>
-									<a class="dropdown-item" href="MyServlet?genre=political">Political</a>
-								</div>
-							</li>
-						</form>
+						<li class="nav-item active px-lg-4"><a
+							class="nav-link text-uppercase text-expanded" href="about.html">Genres</a>
+							<div class="dropdown-content">
+								<a href="MyServlet?genre=children">Children</a> <a
+									href="genredetails.html">Drama</a> <a href="genredetails.html">Non-Fiction</a>
+								<a href="genredetails.html">Fantasy</a> <a
+									href="MyServlet?genre=horror">Horror</a> <a
+									href="genredetails.html">Mystery</a> <a
+									href="genredetails.html">Political</a>
+							</div></li>
 					</div>
 
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
 						href="membership.html">Membership</a></li>
 
-					<li class="nav-item px-lg-4"><a
+					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
 						href="community.html">Community</a></li>
 
@@ -86,79 +110,47 @@
 		</div>
 
 	</nav>
-	
 
-	<section class="page-section about-heading">
+	<div class="container">
+		<%@page import="com.project.Books"%>
+		<%@page import="java.util.ArrayList"%>
 
-		<div class="container">
-			<%@page import="com.project.Books"%>
-			<%@page import="java.util.ArrayList"%>
+		<%
+			ArrayList<Books> books = (ArrayList<Books>) request.getAttribute("booklist");
+			if (books != null) {
+				for (Books book : books) {
+		%>
 
-			<%
-				ArrayList<Books> books = (ArrayList<Books>) request.getAttribute("booklist");
-				if (books != null) {
-					for (Books book : books) {
-			%>
-			<section class="page-section about-heading">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card">
-								<div class="card-header">
-									<b> <%=book.getBookname()%>
-									</b>
-								</div>
-								<div class="card-body">
-									<p class="card-text"> <%=book.getGenre()%> </p>
-									<p class="card-text"> <%=book.getAuthor_name()%> </p>
-									<p class="card-text"> <%=book.getPublishedDate()%> </p>
-								</div>
+		<section class="page-section about-heading">
+			<ul class="product-list-vertical">
+				<li><a href="#" class="product-photo"> <img
+						src="img/bookimg.jpg" height="160" alt="iPhone 6" />
+				</a>
+					<div class="product-details">
+						<h2><%=book.getBookname()%></h2>
+						<div class="product-rating">
+							<div>
+								<span class="product-stars" style="width: 60px"> <i
+									class="fa fa-star"></i><i class="fa fa-star"></i><i
+									class="fa fa-star"></i><i class="fa fa-star"></i><i
+									class="fa fa-star"></i>
+								</span>
 							</div>
+							<h4><%=book.getAuthor_name()%></h4>
 						</div>
-					</div>
-				</div>
-			</section>
-
-			<%
-				}
-				}
-			%>
-
-	<section class="page-section cta">
-
-		<div class="container">
-
-			<div class="row">
-
-				<div class="col-xl-9 mx-auto">
-
-					<div class="cta-inner text-center rounded">
-
-						<h2 class="section-heading mb-4">
-
-							<span class="section-heading-upper">Our Promise</span> <span
-								class="section-heading-lower">To You</span>
-
-						</h2>
-
-						<p class="mb-0">When you walk into our shop to start your day,
-							we are dedicated to providing you with friendly service, a
-							welcoming atmosphere, and above all else, excellent products made
-							with the highest quality ingredients. If you are not satisfied,
-							please let us know and we will do whatever we can to make things
-							right!</p>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
-
+						<p class="product-description"><%=book.getDescription()%></p>
+						<p>
+						<h4><%=book.getGenre()%></h4>
+						</p>
+						<p><%=book.getPublishedDate()%></p>
+					</div></li>
+			</ul>
+		</section>
+		<%
+			}
+			}
+		%>
+	</div>
 
 	<footer class="footer text-faded text-center py-5">
 
@@ -177,8 +169,5 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-
 </body>
 </html>
