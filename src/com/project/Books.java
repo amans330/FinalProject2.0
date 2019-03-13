@@ -9,7 +9,14 @@ public class Books {
 	String genre;
 	String rating;
 	Date publishedDate;
+	String description;
 	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
