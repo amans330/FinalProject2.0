@@ -279,11 +279,12 @@ input[type=submit] {
 							class="nav-link text-uppercase text-expanded" href="index.jsp">Genres</a>
 							<div class="dropdown-content">
 								<a href="MyServlet?genre=children">Children</a> <a
-									href="genredetails.html">Drama</a> <a href="genredetails.html">Non-Fiction</a>
-								<a href="genredetails.html">Fantasy</a> <a
+									href="MyServlet?genre=drama">Drama</a> 
+									<a href="MyServlet?genre=nonfiction">Non-Fiction</a>
+								<a href="MyServlet?genre=fantasy">Fantasy</a> <a
 									href="MyServlet?genre=horror">Horror</a> <a
 									href="MyServlet?genre=comics">Comics</a> <a
-									href="genredetails.html">Political</a>
+									href="MyServlet?genre=political">Political</a>
 							</div></li>
 					</div>
 
