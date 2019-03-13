@@ -1,6 +1,7 @@
 package com.project;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,7 +75,7 @@ public class MySQLAccess {
 	public static ArrayList<Books> getBooksForGenre(String genre) {
 		try {
 			Connection con = getConnection();
-			String query = "select * from bookschema.books natural join bookschema.genre where genre_name = ?";
+			String query = "select * from bookschema.books where genre = ?";
 			PreparedStatement statement = con.prepareStatement(query);
 			statement.setString(1, genre);
 			ResultSet resultSet = statement.executeQuery();
@@ -84,7 +85,7 @@ public class MySQLAccess {
 				book.setBookname(resultSet.getString("bookname"));
 				book.setAuthor_name(resultSet.getString("author"));
 				book.setRating(resultSet.getString("rating"));
-				book.setGenre(resultSet.getString("genre_name"));
+				book.setGenre(resultSet.getString("genre"));
 				book.setPublishedDate(resultSet.getDate("published"));
 				book.setDescription(resultSet.getString("description"));
 				data.add(book);
@@ -115,6 +116,24 @@ public class MySQLAccess {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public static boolean createBook(String bookname, String author, String genre, String description, Date date) {
+		try {
+			Connection con = getConnection();
+			String query = "insert into books(bookname, author, genre, description, published) values(?,?,?,?,?)";
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setString(1, bookname);
+			statement.setString(2, author);
+			statement.setString(3, genre);
+			statement.setString(4, description);
+			statement.setDate(5, date);
+			statement.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
 	}
 
