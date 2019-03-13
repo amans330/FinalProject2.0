@@ -2,8 +2,11 @@ package com.project;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -93,6 +96,30 @@ public class MainListener extends HttpServlet {
 			}else {
 				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 				response.getWriter().println("<font color=red>Wrong user name or password </font>");
+				rd.include(request, response);
+			}
+		}
+		
+		if(request.getHttpServletMapping().getPattern().contains("publishbook")) {
+			String bookname = request.getParameter("bookname");
+			String author = request.getParameter("author");
+			String genre = request.getParameter("genre");
+			String description = request.getParameter("description");
+			String stringdate = request.getParameter("publisheddate");
+			Date javadate;
+			boolean flag = false;
+			try {
+				javadate = new SimpleDateFormat("dd-MM-yyyy").parse(stringdate);
+				java.sql.Date sqlDate = new java.sql.Date(javadate.getTime());
+				flag = MySQLAccess.createBook(bookname, author, genre, description, sqlDate);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			if(flag == true) {
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+			}else {
+				RequestDispatcher rd = request.getRequestDispatcher("/publish.jsp");
+				response.getWriter().println("<font color=red>Cannot publish book. Try again.</font>");
 				rd.include(request, response);
 			}
 		}
