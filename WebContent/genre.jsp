@@ -101,7 +101,7 @@
 
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded"
-						href="community.html">Community</a></li>
+						href="community.jsp">Community</a></li>
 
 				</ul>
 
