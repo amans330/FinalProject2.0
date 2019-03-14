@@ -248,9 +248,13 @@ input[type=submit] {
 				<ul class="navbar-nav mx-auto">
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.jsp">Trending</a>
-
-						<span class="sr-only">(current)</span> </li>
+						class="nav-link text-uppercase text-expanded" href="index.jsp">Home</a>
+						<span class="sr-only">(current)</span>
+					</li>
+					
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="trending.jsp">Trending</a>
+					</li>
 
 					<div class="dropdown">
 						<li class="nav-item active px-lg-4"><a
@@ -274,6 +278,9 @@ input[type=submit] {
 						class="nav-link text-uppercase text-expanded"
 						href="getChats">Community</a></li>
 
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded"
+						href="logout">Logout</a></li>
 				</ul>
 
 			</div>
@@ -283,9 +290,9 @@ input[type=submit] {
 	</nav>
 	
 
-	<section class="page-section clearfix">
+	<section class="page-section">
 		<div class="form-container">
-			<form id="contact" action="publishbook" method="post">
+			<form id="contact" action="publishbook" method="post" style="background-color: #ffebcd">
 				<h3>Upload Books</h3>
 				<fieldset>
 					<input name="bookname" placeholder="Bookname" type="text" tabindex="1" required

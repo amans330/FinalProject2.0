@@ -12,7 +12,7 @@
 
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <!-- Custom fonts for this template -->
 <link
 	href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -26,6 +26,7 @@
 <link href="css/product-list-vertical.css" rel="stylesheet">
 
 <style>
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -75,6 +76,29 @@
 	position: relative;
 	top: 1px;
 }
+
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before { 
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
+
+a[href], a[href]:hover {color: black;  text-decoration: none}
 </style>
 </head>
 <body>
@@ -100,9 +124,12 @@
 				<ul class="navbar-nav mx-auto">
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.jsp">Trending</a>
+						class="nav-link text-uppercase text-expanded" href="index.jsp">Home</a>
+						<span class="sr-only">(current)</span></li>
 
-						<span class="sr-only">(current)</span> </a></li>
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="trending.jsp">Trending</a>
+					</li>
 
 					<div class="dropdown">
 						<li class="nav-item active px-lg-4"><a
@@ -124,6 +151,8 @@
 					<li class="nav-item active px-lg-4"><a
 						class="nav-link text-uppercase text-expanded" href="getChats">Community</a></li>
 
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="logout">Logout</a></li>
 				</ul>
 
 			</div>
@@ -150,6 +179,20 @@
 				</a>
 					<div class="product-details">
 						<h2><%=book.getBookname()%></h2>
+						<div class="mycontainer">
+							<div
+								class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+								<input type="radio" id="star5" name="rating" value="5" /><label
+									for="star5" title="5 star"></label> <input type="radio"
+									id="star4" name="rating" value="4" /><label for="star4"
+									title="4 star"></label> <input type="radio" id="star3"
+									name="rating" value="3" /><label for="star3" title="3 star"></label>
+								<input type="radio" id="star2" name="rating" value="2" /><label
+									for="star2" title="2 star"></label> <input type="radio"
+									id="star1" name="rating" value="1" /><label for="star1"
+									title="1 star"></label>
+							</div>
+						</div>
 						<div class="product-rating">
 							<div>
 								<span class="product-stars" style="width: 60px"> <i
@@ -173,9 +216,15 @@
 							<%=book.getPublishedDate()%></p>
 						<b>GET A COPY</b>
 						<form action="/action_page.php" method="get">
-							<p class="myButton">Amazon</p>
-							<p class="myButton">Libraries</p>
-							<p class="myButton">Download eBook</p>
+							<p class="myButton">
+								<a href="https://www.amazon.com/">Amazon</a>
+							</p>
+							<p class="myButton">
+								<a href="https://library.pdx.edu/">Library</a>
+							</p>
+							<p class="myButton">
+								<a href="https://www.gutenberg.org/">Download eBook</a>
+							</p>
 						</form>
 					</div></li>
 			</ul>

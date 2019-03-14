@@ -134,9 +134,13 @@
 				<ul class="navbar-nav mx-auto">
 
 					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="index.jsp">Trending</a>
-
-						<span class="sr-only">(current)</span> </a></li>
+						class="nav-link text-uppercase text-expanded" href="index.jsp">Home</a>
+						<span class="sr-only">(current)</span>
+					</li>
+					
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded" href="trending.jsp">Trending</a>
+					</li>
 
 					<div class="dropdown">
 						<li class="nav-item active px-lg-4"><a
@@ -160,6 +164,9 @@
 						class="nav-link text-uppercase text-expanded"
 						href="getChats">Community</a></li>
 
+					<li class="nav-item active px-lg-4"><a
+						class="nav-link text-uppercase text-expanded"
+						href="logout">Logout</a></li>
 				</ul>
 
 			</div>

@@ -36,4 +36,8 @@
   	<servlet-name>MyServlet</servlet-name>
   	<url-pattern>/postComment</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MyServlet</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>
