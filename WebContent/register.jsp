@@ -30,7 +30,7 @@
   	</h1>
 	<section class="page-section clearfix">
 		<div class="form-container">
-			<form id="contact" action="RegisterUser" method="post">
+			<form id="contact" action="RegisterUser" method="post" style="background-color: #ffebcd">
 				<h3>Registration Form</h3>
 				<fieldset>
 					<input name="username" placeholder="Username" type="text" tabindex="1" required

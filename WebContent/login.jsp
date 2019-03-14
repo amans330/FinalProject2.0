@@ -29,7 +29,7 @@
   	</h1>
 	<section class="page-section clearfix">
 		<div class="form-container">
-			<form id="contact" action="MyLogin" method="post">
+			<form id="contact" action="MyLogin" method="post" style="background-color: #ffebcd">
 				<h3>Login</h3>
 				<fieldset>
 					<input name="username" placeholder="Username" type="text" tabindex="1" required
