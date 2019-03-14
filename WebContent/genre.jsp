@@ -193,7 +193,7 @@ a[href], a[href]:hover {color: black;  text-decoration: none}
 									title="1 star"></label>
 							</div>
 						</div>
-						<div class="product-rating">
+						<div class="product-rating"> 
 							<div>
 								<span class="product-stars" style="width: 60px"> <i
 									class="fa fa-star"></i><i class="fa fa-star"></i><i
