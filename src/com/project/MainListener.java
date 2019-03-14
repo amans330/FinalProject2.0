@@ -66,7 +66,13 @@ public class MainListener extends HttpServlet {
 				String genre = request.getParameter("genre"); 
 				ArrayList<Books> data = MySQLAccess.getBooksForGenre(genre);
 				request.setAttribute("booklist", data);
+				response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 				request.getRequestDispatcher("/genre.jsp").forward(request, response);
+			}
+			
+			if(request.getHttpServletMapping().getPattern().contains("logout")) {
+				session.invalidate();
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 		}else {
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
