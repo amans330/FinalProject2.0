@@ -28,33 +28,52 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.
 <style>
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 .dropdown {
-	position: relative;
-	display: inline-block;
-}
 
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 140px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
+ 	 position: relative;
 
-.dropdown-content a {
-	color: black;
-	padding: 10px 10px;
-	text-decoration: none;
-	display: block;
-}
+ 	 display: inline-block;
 
-.dropdown:hover .dropdown-content {
-	display: block;
-}
+	}
 
-.dropdown-content a:hover {
-	background-color: #ddd;
-}
+
+
+	.dropdown-content {
+
+ 	 display: none;
+
+ 	 position: absolute;
+
+ 	 background-color: #FFEBCD;
+
+ 	 min-width: 140px;
+
+ 	 box-shadow: white;
+
+ 	 z-index: 1;
+
+	}
+
+
+
+	.dropdown-content a {
+
+	  color: black;
+
+ 	 padding: 10px 10px;
+
+ 	 position: relative;
+
+ 	 text-decoration: none;
+
+ 	 text-align: left;
+
+  	display: block;
+
+	}
+
+	.dropdown:hover .dropdown-content {display: block;}
+
+	.dropdown-content a:hover {background-color: #CD853F;}
 
 .myButton {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cd863f
@@ -178,7 +197,7 @@ a[href], a[href]:hover {color: black;  text-decoration: none}
 						alt="iPhone 6" />
 				</a>
 					<div class="product-details">
-						<h2><%=book.getBookname()%></h2>
+						<h4><b><%=book.getBookname()%></b></h4>
 						<div class="mycontainer">
 							<div
 								class="starrating risingstar d-flex justify-content-center flex-row-reverse">
@@ -201,15 +220,15 @@ a[href], a[href]:hover {color: black;  text-decoration: none}
 									class="fa fa-star"></i>
 								</span>
 							</div>
-							<h4>
-								by
-								<%=book.getAuthor_name()%></h4>
+							<h2>
+								-by
+								<%=book.getAuthor_name()%></h2>
 						</div>
 						<p class="product-description"><%=book.getDescription()%></p>
 						<p>
-						<h4>
+						<h2>
 							Genre:
-							<%=book.getGenre()%></h4>
+							<%=book.getGenre()%></h2>
 						</p>
 						<p>
 							Published On:
