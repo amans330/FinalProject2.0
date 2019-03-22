@@ -1,0 +1,55 @@
+create table bookschema.users(userid varchar(10) UNIQUE, username varchar(50) PRIMARY KEY, password varchar(50));
+create table bookschema.genre(genreid INTEGER(5) primary key, genre_name varchar(30), genre_description varchar(50));
+create table bookschema.discussion(username varchar(10), message varchar(200), posted_on date);
+create table bookschema.books(bookid integer(5) primary key, bookname varchar(50), author varchar(30), rating double, published date, genreid integer(5), foreign key (genreid) references bookschema.genre (genreid));
+create 
+
+insert into bookschema.users value('1','adya','123');
+insert into bookschema.genre values(1,'Horror','Horror Books, Ghosts, Psychotic');
+insert into bookschema.books values(101, "harry potter", "J K Rowling", 5.0, "2008-11-11", 1);
+insert into bookschema.books values(102, "harry potter 2", "J K Rowling", 5.0, "2008-12-12", 1);
+insert into bookschema.discussion values("adya","I think Harry Potter is the best book ever written about Ariana Grande!","2019-03-12");
+insert into bookschema.discussion values("aman","I think that would be Hermoine..","2019-03-12");
+
+insert into bookschema.discussion values("kartick", "@aman Just as hermoine says, when in doubt goto Mumma Book Bhandar", "2019-03-13");
+insert into bookschema.discussion values("raveena", "Have you guys read The Name of the Wind?", "2018-03-12");
+insert into bookschema.discussion values("john", "@raveena Yes it’s my favourite book of all time", "2018-03-13");
+insert into bookschema.discussion values("jack", "@raveena @john I’m waiting for them to add it here", "2018-04-14");
+
+insert into bookschema.discussion values("ned", "Winter is coming and I plan to take a break and read these books!", "2018-05-22");
+
+insert into bookschema.discussion values("jon", "The wall will protect us", "2018-03-12");
+
+insert into bookschema.discussion values("ygritte", "You know nothing.. about books, @Jon!", "2018-08-13");
+
+insert into bookschema.discussion values("khaleesi", "@john I didn’t give you the permission to leave this website", "2018-08-29");
+
+insert into bookschema.discussion values("rohan", "I’m eager to see if they’ll include books in other languages here.", "2018-11-01");
+
+
+
+
+
+insert into bookschema.discussion values("watson", "I’m very interested in the psychology section", "2018-09-7");
+
+insert into bookschema.discussion values("sherlock", "Did anyone understand the ending of ‘Hound of Baskervilles’? Help me out here. ", "2018-03-23");
+
+insert into bookschema.discussion values("sherlock", "Nevermind, took me some time but I got it ", "2018-03-23");
+
+insert into bookschema.discussion values("bates", "The horror section here is interesting! Going to dive right in", "2018-12-29");
+
+select * from books;
+delete from bookschema.discussion where message = "i think so";
+select * from bookschema.books;
+select * from bookschema.books natural join bookschema.genre;
+update bookschema.books set bookname="Harry Potter and The Chamber of Secrets" where bookid = 102;
+ ALTER TABLE users MODIFY COLUMN userid integer;
+ ALTER TABLE books ADD COLUMN genre varchar(30);
+ Alter table books modify description varchar(500);
+  ALTER TABLE books drop COLUMN genreid;
+ ALTER TABLE users add COLUMN email varchar(30);
+ ALTER TABLE books add COLUMN description varchar(200);
+ ALTER TABLE users MODIFY COLUMN userid INT auto_increment;
+ ALTER TABLE books MODIFY COLUMN bookid INT auto_increment;
+ update users set email="adpandey@pdx.edu" where userid = 1;
+update books set genre="Fantasy";
